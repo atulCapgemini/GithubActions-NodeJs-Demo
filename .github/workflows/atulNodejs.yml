@@ -1,2 +1,17 @@
+---
 name: AtulJainNodeJsWorkflow
-on : workflow_dispatch
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the reop
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: TESting
+        run: npm test
